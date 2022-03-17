@@ -10,13 +10,13 @@ namespace SelfCheckHybrid.Models.Sip2
 {
     public class BookInformation
     {
-       [Required(ErrorMessage = "คุณยังไม่ได่้กรอก Duedate", AllowEmptyStrings = false)]
-        public string Duedate { get; set; } = "";
-
         [RegularExpression("^[0-9]*$", ErrorMessage = "กรุณากรอกตัวเลข")]
         [Required(ErrorMessage = "คุณยังไม่ได่้กรอก Barcodebook")]
         [MaxLength(50, ErrorMessage = "คุณป้อนตัวอักษรเกิน 50 อักขระ")]
         public string Barcodebook { get; set; } = "";
+        [Required(ErrorMessage = "คุณยังไม่ได่้กรอก Duedate", AllowEmptyStrings = false)]
+        public string Duedate { get; set; } = "";
+
        [Required(ErrorMessage = "คุณยังไม่ได่้กรอก Title", AllowEmptyStrings = false)]
         public string Title { get; set; } = "";
        [Required(ErrorMessage = "คุณยังไม่ได่้กรอก Owner", AllowEmptyStrings = false)]

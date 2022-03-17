@@ -9,14 +9,15 @@ namespace SelfCheckHybrid.Models.Sip2
 {
     public class CheckOutInformation
     {
+        [Required(ErrorMessage = "คุณยังไม่ได่้กรอก Barcodebook", AllowEmptyStrings = false)]
+        [RegularExpression(@"[0-9]$", ErrorMessage = "กรุณากรอกตัวเลข")]
+        [MaxLength(50, ErrorMessage = "คุณป้อนตัวอักษรเกิน 50 อักขระ")]
+        public string Barcodebook { get; set; } = "";
         [Required(ErrorMessage = "คุณยังไม่ได่้กรอก Status", AllowEmptyStrings = false)]
         public string Status { get; set; } = "";
         [Required(ErrorMessage = "คุณยังไม่ได่้กรอก PatronID", AllowEmptyStrings = false)]
         public string PatronID { get; set; } = "";
-        [Required(ErrorMessage = "คุณยังไม่ได่้กรอก Barcodebook", AllowEmptyStrings = false)]
-        [RegularExpression(@"[0-9]$" , ErrorMessage ="กรุณากรอกตัวเลข")]
-       [MaxLength(50, ErrorMessage = "คุณป้อนตัวอักษรเกิน 50 อักขระ")]
-        public string Barcodebook { get; set; } = "";
+      
         [Required(ErrorMessage = "คุณยังไม่ได่้กรอก Title", AllowEmptyStrings = false)]
         public string Title { get; set; } = "";
         [Required(ErrorMessage = "คุณยังไม่ได่้กรอก Duedate", AllowEmptyStrings = false)]
