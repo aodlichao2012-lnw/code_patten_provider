@@ -1,0 +1,2 @@
+D:\Pen1 Projects\code_patten_provider\DcFramework\obj\Release\DcFramework.csproj.AssemblyReference.cache
+D:\Pen1 Projects\code_patten_provider\DcFramework\obj\Release\DcFramework.csproj.CoreCompileInputs.cache
