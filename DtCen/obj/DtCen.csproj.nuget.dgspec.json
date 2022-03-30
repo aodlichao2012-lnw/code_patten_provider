@@ -70,10 +70,6 @@
               "target": "Package",
               "version": "[6.0.3, )"
             },
-            "Oracle.ManagedDataAccess": {
-              "target": "Package",
-              "version": "[21.5.0, )"
-            },
             "System.ComponentModel.Annotations": {
               "target": "Package",
               "version": "[5.0.0, )"
