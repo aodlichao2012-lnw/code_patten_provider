@@ -1,6 +1,6 @@
 ﻿using System;
 
-namespace Datacenter
+namespace datacenter
 {
     public class Class1
     {
