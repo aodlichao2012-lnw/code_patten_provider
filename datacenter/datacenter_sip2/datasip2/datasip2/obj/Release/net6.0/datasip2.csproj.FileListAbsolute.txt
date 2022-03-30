@@ -1,0 +1,5 @@
+D:\Pen1 Projects\datacenter\datacenter_sip2\datasip2\datasip2\obj\Release\net6.0\datasip2.csproj.AssemblyReference.cache
+D:\Pen1 Projects\datacenter\datacenter_sip2\datasip2\datasip2\obj\Release\net6.0\datasip2.GeneratedMSBuildEditorConfig.editorconfig
+D:\Pen1 Projects\datacenter\datacenter_sip2\datasip2\datasip2\obj\Release\net6.0\datasip2.AssemblyInfoInputs.cache
+D:\Pen1 Projects\datacenter\datacenter_sip2\datasip2\datasip2\obj\Release\net6.0\datasip2.AssemblyInfo.cs
+D:\Pen1 Projects\datacenter\datacenter_sip2\datasip2\datasip2\obj\Release\net6.0\datasip2.csproj.CoreCompileInputs.cache
