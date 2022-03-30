@@ -6,7 +6,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace SelfCheckHybrid.Models.Sip2
+namespace datacenter
 {
     public class UserInformation
     {

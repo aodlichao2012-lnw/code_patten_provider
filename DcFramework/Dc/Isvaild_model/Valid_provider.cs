@@ -5,7 +5,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace datasip2.Isvaild_model
+namespace datacenter
 {
    public  class Valid_provider
     {

@@ -6,7 +6,7 @@ using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 
-namespace SelfCheckHybrid.Models.Sip2
+namespace datacenter
 {
     public class BookInformation
     {

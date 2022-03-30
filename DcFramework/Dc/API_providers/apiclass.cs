@@ -4,7 +4,7 @@ using System.Data;
 using System.Linq;
 using System.Text;
 
-namespace datacenter.API_providers
+namespace datacenter
 {
    public class apiclass 
     {
@@ -15,7 +15,7 @@ namespace datacenter.API_providers
 
         private static apiclass UrlHelpClasss = null;
 
-        public apiclass Instance
+        public static apiclass Instance
         {
             get
             {
@@ -26,57 +26,53 @@ namespace datacenter.API_providers
                 return UrlHelpClasss;
             }
         }
-        public ICollection<object> GetAll(object models)
+        public ICollection<ModelViewModels> GetAll(ModelViewModels models)
         {
-            var model = models as ICollection<object>;
+            var model = models as ICollection<ModelViewModels>;
             var res = (from a in model
                       select a).ToList();
             return res;
         } 
-        public ICollection<object> Get(object models , string id)
+        public ICollection<ModelViewModels> Get(ModelViewModels models , string id)
         {
-            var model = models as ICollection<object>;
+            var model = models as ICollection<ModelViewModels>;
             var res = (from a in model
                        where a.Equals(id)
                       select a).ToList();
             return res;
         } 
-        public ICollection<object> GetConditionplus(object models , string Propertiesname , int num)
+        public ICollection<ModelViewModels> GetConditionplus(ModelViewModels models , string Propertiesname , int num)
         {
-            var model = models as ICollection<object>;
+            var model = models as ICollection<ModelViewModels>;
             var res = (from a in model
                        where int.Parse( a.GetType().GetProperty(Propertiesname).GetValue(a).ToString() ) > num
                       select a).ToList();
             return res;
         }   
-        public ICollection<object> GetConditionnative(object models , string Propertiesname , int num)
+        public ICollection<ModelViewModels> GetConditionnative(ModelViewModels models , string Propertiesname , int num)
         {
-            var model = models as ICollection<object>;
+            var model = models as ICollection<ModelViewModels>;
             var res = (from a in model
                        where int.Parse( a.GetType().GetProperty(Propertiesname).GetValue(a).ToString() ) < num
                       select a).ToList();
             return res;
         }    
-        public ICollection<object> PostInsert(object models , string Propertiesname , object Body)
+        public ICollection<ModelViewModels> PostInsert(ModelViewModels models , string Propertiesname , ModelViewModels Body)
         {
-            var model = models as ICollection<object>;
-            var Db = Body as ICollection<object>;
-            model.Add(Db);
+            var model = models as ICollection<ModelViewModels>;
+            model.Add(Body);
             return model;
         } 
-        public ICollection<object> PostUpdate(object models , string Propertiesname , object Body)
+        public ModelViewModels PostUpdate(ModelViewModels models , ModelViewModels Body)
         {
-            var model = models as ICollection<object>;
-            var Db = Body as ICollection<object>;
-            model.GetType().GetProperty(Propertiesname).SetValue(model, Db);
-            return model;
+            models = Body;
+            return models;
         } 
-        public ICollection<object> PostDelete(object models , string Propertiesname , object Body)
+        public IList< ModelViewModels> PostDelete(ModelViewModels models , string Propertiesname , ModelViewModels Body)
         {
-            var model = models as ICollection<object>;
-            var Db = Body as ICollection<object>;
-            model.Remove(Db);
-            return model;
+            IList<ModelViewModels> models1 = models as IList<ModelViewModels>;
+            models1.Remove(Body);
+            return models1;
         }
     }
 }

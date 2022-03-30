@@ -1,17 +1,16 @@
-﻿using datasip2.Error_provider;
+﻿
 using MongoDB.Bson;
 using MongoDB.Driver;
 using MySql.Data.MySqlClient;
 using Npgsql;
 using Oracle.ManagedDataAccess.Client;
-using SelfCheckHybrid.Models.Sip2;
 using System;
 using System.Collections.Generic;
 using System.Data;
 using System.Data.SqlClient;
 using System.Text;
 
-namespace datacenter.Database_provider
+namespace datacenter
 {
     public class Db_connections
     {

@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Data.SqlClient;
-namespace datasip2.Error_provider
+namespace datacenter
 {
     public  class Error_providers : Exception
     {

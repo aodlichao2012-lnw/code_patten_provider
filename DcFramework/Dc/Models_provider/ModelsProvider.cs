@@ -1,9 +1,9 @@
-﻿using SelfCheckHybrid.Models.Sip2;
+﻿
 using System;
 using System.Collections.Generic;
 using System.Text;
 
-namespace datacenter.Models_provider
+namespace datacenter
 {
    public class ModelsProvider
     {

@@ -5,7 +5,7 @@ using System.Collections.Generic;
 using System.Text;
 using Ubiety.Dns.Core;
 
-namespace datacenter.Url_helper
+namespace datacenter
 {
   public  class UrlHelpClass 
     {

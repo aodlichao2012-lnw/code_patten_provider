@@ -207,6 +207,7 @@
     <Compile Include="Models_provider\CheckInInformation.cs" />
     <Compile Include="Models_provider\CheckOutInformation.cs" />
     <Compile Include="Models_provider\ModelsProvider.cs" />
+    <Compile Include="Models_provider\ModelViewModels.cs" />
     <Compile Include="Models_provider\PatronInformation.cs" />
     <Compile Include="Models_provider\RenewInformation.cs" />
     <Compile Include="Models_provider\UserInformation.cs" />
