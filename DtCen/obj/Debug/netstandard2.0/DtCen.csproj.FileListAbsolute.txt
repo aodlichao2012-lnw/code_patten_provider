@@ -1,7 +1,0 @@
-D:\Pen1 Projects\code_patten_provider\DtCen\obj\Debug\netstandard2.0\DtCen.csproj.AssemblyReference.cache
-D:\Pen1 Projects\code_patten_provider\DtCen\obj\Debug\netstandard2.0\DtCen.datacenter_sip2.datasip2.WinFormsApp1.Form1.resources
-D:\Pen1 Projects\code_patten_provider\DtCen\obj\Debug\netstandard2.0\DtCen.csproj.GenerateResource.cache
-D:\Pen1 Projects\code_patten_provider\DtCen\obj\Debug\netstandard2.0\DtCen.GeneratedMSBuildEditorConfig.editorconfig
-D:\Pen1 Projects\code_patten_provider\DtCen\obj\Debug\netstandard2.0\DtCen.AssemblyInfoInputs.cache
-D:\Pen1 Projects\code_patten_provider\DtCen\obj\Debug\netstandard2.0\DtCen.AssemblyInfo.cs
-D:\Pen1 Projects\code_patten_provider\DtCen\obj\Debug\netstandard2.0\DtCen.csproj.CoreCompileInputs.cache
