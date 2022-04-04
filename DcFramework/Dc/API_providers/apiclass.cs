@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.Entity;
 using System.Linq;
 using System.Text;
 
@@ -8,6 +9,7 @@ namespace datacenter
 {
    public class apiclass 
     {
+
         private apiclass()
         {
 
@@ -26,53 +28,79 @@ namespace datacenter
                 return UrlHelpClasss;
             }
         }
-        public ICollection<ModelViewModels> GetAll(ModelViewModels models)
+        public List<ModelViewModels> GetAll()
         {
-            var model = models as ICollection<ModelViewModels>;
-            var res = (from a in model
-                      select a).ToList();
-            return res;
+            using(var models = new ModelDbContext())
+            {
+                var res = (from a in models.modelViewModels
+                           select a).ToList();
+                return res;
+            }
+           
         } 
-        public ICollection<ModelViewModels> Get(ModelViewModels models , string id)
+        public ModelViewModels Get( string id)
         {
-            var model = models as ICollection<ModelViewModels>;
-            var res = (from a in model
-                       where a.Equals(id)
-                      select a).ToList();
-            return res;
+            using (var models = new ModelDbContext())
+            {
+                var res = (from a in models.modelViewModels
+                           where a.Barcodebook.Equals(id)
+                           select a).FirstOrDefault();
+                return res;
+            }
         } 
-        public ICollection<ModelViewModels> GetConditionplus(ModelViewModels models , string Propertiesname , int num)
+        public List<ModelViewModels> GetConditionplus(int num)
         {
-            var model = models as ICollection<ModelViewModels>;
-            var res = (from a in model
-                       where int.Parse( a.GetType().GetProperty(Propertiesname).GetValue(a).ToString() ) > num
-                      select a).ToList();
-            return res;
+            using (var models = new ModelDbContext())
+            {
+                var res = (from a in models.modelViewModels
+                           where int.Parse(a.Fee) > num
+                           select a).ToList();
+                return res;
+            }
         }   
-        public ICollection<ModelViewModels> GetConditionnative(ModelViewModels models , string Propertiesname , int num)
+        public List<ModelViewModels> GetConditionnative( int num)
         {
-            var model = models as ICollection<ModelViewModels>;
-            var res = (from a in model
-                       where int.Parse( a.GetType().GetProperty(Propertiesname).GetValue(a).ToString() ) < num
-                      select a).ToList();
-            return res;
+            using (var models = new ModelDbContext())
+            {
+                var res = (from a in models.modelViewModels
+                           where int.Parse(a.Fee) > num
+                           select a).ToList();
+                return res;
+            }
         }    
-        public ICollection<ModelViewModels> PostInsert(ModelViewModels models , string Propertiesname , ModelViewModels Body)
+        public bool  PostInsert( ModelViewModels Body)
         {
-            var model = models as ICollection<ModelViewModels>;
-            model.Add(Body);
-            return model;
+            using (var models = new ModelDbContext())
+            {
+                models.modelViewModels.Add(Body);
+                return true;
+            }
         } 
-        public ModelViewModels PostUpdate(ModelViewModels models , ModelViewModels Body)
+        public ModelViewModels PostUpdate( ModelViewModels Body)
         {
-            models = Body;
-            return models;
+            using (var models = new ModelDbContext())
+            {
+                var cs = models.modelViewModels.Where(a => a.Barcodebook == Body.Barcodebook).FirstOrDefault();
+
+                if (cs != null)
+                {
+                    cs.Address = Body.Address;
+                    cs.Callnumber = Body.Callnumber;
+                    cs.Duedate = Body.Duedate;
+                    cs.Fee = Body.Fee;
+                    cs.Name = Body.Name;
+                }
+                return cs;
+            }
+        
         } 
-        public IList< ModelViewModels> PostDelete(ModelViewModels models , string Propertiesname , ModelViewModels Body)
+        public bool PostDelete( ModelViewModels Body)
         {
-            IList<ModelViewModels> models1 = models as IList<ModelViewModels>;
-            models1.Remove(Body);
-            return models1;
+            using (var models = new ModelDbContext())
+            {
+                models.modelViewModels.Remove(Body);
+                return true;
+            }
         }
     }
 }

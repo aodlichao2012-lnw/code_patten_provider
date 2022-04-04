@@ -6,6 +6,7 @@ using Npgsql;
 using Oracle.ManagedDataAccess.Client;
 using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.Data;
 using System.Data.SqlClient;
 using System.Text;
@@ -33,12 +34,12 @@ namespace datacenter
                 return db_Connections;
             }
         }
-        public void ManageDatabaseSQLServerCommand(string cmd, ref object models, string Connectionsstring = "")
+        public void ManageDatabaseSQLServerCommand(string cmd, ref object models)
         {
             try
             {
                 DataTable dt = new DataTable();
-                using (var connecttion = new SqlConnection(Connectionsstring))
+                using (var connecttion = new SqlConnection(ConfigurationManager.ConnectionStrings["Dbcontects"].ConnectionString))
                 {
                     connecttion.Open();
                     SqlDataAdapter sqlData = new SqlDataAdapter(cmd, connecttion);
@@ -53,12 +54,12 @@ namespace datacenter
             }
 
         }
-        public void ManageDatabasePostgreServerCommand(string cmd, ref object models, string Connectionsstring = "")
+        public void ManageDatabasePostgreServerCommand(string cmd, ref object models)
         {
             try
             {
                 DataTable dt = new DataTable();
-                using (var connecttion = new NpgsqlConnection(Connectionsstring))
+                using (var connecttion = new NpgsqlConnection(ConfigurationManager.ConnectionStrings["Dbcontects"].ConnectionString))
                 {
                     connecttion.Open();
                     NpgsqlCommand sqlData = new NpgsqlCommand(cmd, connecttion);
@@ -73,12 +74,12 @@ namespace datacenter
             }
 
         }
-        public void ManageDatabaseOracleServerCommand(string cmd, ref object models, string Connectionsstring = "")
+        public void ManageDatabaseOracleServerCommand(string cmd, ref object models)
         {
             try
             {
                 DataTable dt = new DataTable();
-                using (var connecttion = new OracleConnection(Connectionsstring))
+                using (var connecttion = new OracleConnection(ConfigurationManager.ConnectionStrings["Dbcontects"].ConnectionString))
                 {
                     connecttion.Open();
                     OracleCommand sqlData = new OracleCommand(cmd, connecttion);
@@ -94,12 +95,12 @@ namespace datacenter
 
         }  
         
-        public void ManageDatabaseMysqlServerCommand(string cmd, ref object models, string Connectionsstring = "")
+        public void ManageDatabaseMysqlServerCommand(string cmd, ref object models)
         {
             try
             {
                 DataTable dt = new DataTable();
-                using (var connecttion = new MySqlConnection(Connectionsstring))
+                using (var connecttion = new MySqlConnection(ConfigurationManager.ConnectionStrings["Dbcontects"].ConnectionString))
                 {
                     connecttion.Open();
                     MySqlCommand sqlData = new MySqlCommand(cmd, connecttion);
@@ -114,12 +115,12 @@ namespace datacenter
             }
 
         }
-        public  void ManageDatabaseMongoDbServerCommand(BsonDocument cmd, string collectionname , ref object models, string Connectionsstring = "", string databasename = "")
+        public  void ManageDatabaseMongoDbServerCommand(BsonDocument cmd, string collectionname , ref object models , string databasename = "")
         {
             try
             {
                 var command = cmd;
-                var cilent = new MongoClient(Connectionsstring);
+                var cilent = new MongoClient(ConfigurationManager.ConnectionStrings["Dbcontects"].ConnectionString);
                 var db = cilent.GetDatabase(databasename);
                 var collections =  db.GetCollection<object>(collectionname);
                 models = collections.Find(command).ToList();
@@ -136,7 +137,7 @@ namespace datacenter
         public void testMongo()
         {
             var cs = new BsonDocument("Name" , new BsonDocument("", 300));
-            Db_connections.instance.ManageDatabaseMongoDbServerCommand(cs,"suparat",ref aaa , "", "");
+            Db_connections.instance.ManageDatabaseMongoDbServerCommand(cs,"suparat",ref aaa , "");
         }
 
 

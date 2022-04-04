@@ -1,0 +1,1 @@
+D:\Pen1 Projects\code_patten_provider\DcFramework\Dc\obj\Release\datacenter.csproj.CoreCompileInputs.cache
