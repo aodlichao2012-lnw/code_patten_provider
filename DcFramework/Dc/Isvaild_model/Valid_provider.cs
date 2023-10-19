@@ -26,26 +26,21 @@ namespace datacenter
 
         public string isvaild(object model , object  values ,  ref string message )
         {
-            int count = 0;
-            foreach (var propertyInfo in model.GetType().GetProperties())
+            foreach(var values_item in values.GetType().GetProperties())
             {
-                propertyName[count] = propertyInfo.Name;
-                count++;
+                
+                if (!model.GetType().GetProperties().Any(x => x.PropertyType == values_item.PropertyType))
+                {
+                    return "type ไม่ตรง";
+                }
+                else
+                    message = "ok";
+
             }
-            ValidationContext context = new ValidationContext(model, null, null)
-            {
-                MemberName = propertyName[0]
-            };
-            var results = new List<ValidationResult>();
-            var isValid = Validator.TryValidateProperty(values, context, results );
-            if (!isValid)
-            {
-                foreach (ValidationResult result in results)
-                    message = result.ErrorMessage.ToString();
-            }
-            else
-                return "ok";
+         
+
             return message;
+        
         }
     }
 }
